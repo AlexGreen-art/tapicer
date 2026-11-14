@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kontakt — Sprężyna, zakład tapicerski</title>
+<meta name="description" content="Telefon, adres i godziny otwarcia zakładu tapicerskiego Sprężyna w Aleksandrowie Łódzkim.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styl.css?v=2">
+</head>
+<body>
+
+<header class="gora">
+  <a class="znak" href="index.html">Sprężyna<span>.</span></a>
+  <button id="menu-p" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  <nav id="menu">
+      <a href="index.html">Strona główna</a>
+      <a href="oferta.html">Oferta</a>
+      <a href="realizacje.html">Realizacje</a>
+      <a href="cennik.html">Cennik</a>
+      <a href="kontakt.html" class="tu" aria-current="page">Kontakt</a>
+      <a class="tel" href="tel:+48425550123">42 555 01 23</a>
+      <span class="pokaz">
+        <a href="../przed/">Stara wersja strony</a>
+        <a href="https://alexgreen-art.github.io/portfolio/">← Portfolio</a>
+      </span>
+  </nav>
+</header>
+
+<main>
+<section class="tytul">
+  <div class="wew">
+    <p class="nadtytul">Kontakt</p>
+    <h1>Zadzwoń albo przyślij zdjęcie</h1>
+    <p>Odbieramy w godzinach pracy. Maile czytamy codziennie.</p>
+  </div>
+</section>
+<section class="tresc">
+  <div class="wew kontakt">
+    <div>
+      <a class="duzy" href="tel:+48425550123">42 555 01 23</a>
+      <a class="mail" href="mailto:pracownia@sprezyna.example?subject=Zapytanie%20o%20wycen%C4%99%20%E2%80%94%20tapicerka">pracownia@sprezyna.example</a>
+      <p>Najszybciej wyceniamy ze zdjęcia. Wystarczy jedno z przodu i jedno z boku oraz przybliżone wymiary.</p>
+      <p class="sasiad">Drewniana rama też wymaga naprawy? Współpracujemy ze stolarnią <a href="https://alexgreen-art.github.io/stolarnia/">Drugie Życie ze Zgierza</a>. Mebel jedzie tam i wraca do nas bez Twojego udziału.</p>
+      <div class="przyciski">
+        <a class="przycisk glowny" href="tel:+48425550123">Zadzwoń</a>
+        <a class="przycisk obrys" href="mailto:pracownia@sprezyna.example?subject=Zapytanie%20o%20wycen%C4%99%20%E2%80%94%20zdj%C4%99cie%20mebla&body=Dzie%C5%84%20dobry%2C%0A%0Aw%20za%C5%82%C4%85czniku%20wysy%C5%82am%20zdj%C4%99cie%20mebla.%0AWymiary%20%28mniej%20wi%C4%99cej%29%3A%20%0ACo%20jest%20do%20zrobienia%3A%20%0A">Wyślij zdjęcie mebla</a>
+      </div>
+    </div>
+    <div class="dane">
+      <img src="foto/fotel-po.jpg" alt="Fotel uszak po renowacji" loading="lazy" style="object-position:center 35%">
+      <div>
+        <h3>Adres</h3>
+        <p>ul. Tkacka 14<br>95-070 Aleksandrów Łódzki</p>
+        <h3>Godziny</h3>
+        <table>
+          <tr><td>poniedziałek – piątek</td><td>8:00 – 16:00</td></tr>
+          <tr><td>sobota</td><td>9:00 – 13:00</td></tr>
+          <tr><td>niedziela</td><td>nieczynne</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="stopka">
+  <div class="wew">
+    <b style="color:#fff">Sprężyna</b>
+    <span>ul. Tkacka 14, Aleksandrów Łódzki</span>
+    <a href="tel:+48425550123">42 555 01 23</a>
+    <a href="mailto:pracownia@sprezyna.example?subject=Zapytanie%20o%20wycen%C4%99%20%E2%80%94%20tapicerka">pracownia@sprezyna.example</a>
+    <span>pon.–pt. 8–16, sob. 9–13</span>
+    <p class="demo">Strona demonstracyjna, miejsce, ceny i osoby są zmyślone. To część pokazu „Modernizacja: przed i po”. <a href="../przed/">Zobacz, jak ta sama strona wyglądała przed zmianą.</a></p>
+  </div>
+</footer>
+
+<script>
+var mp = document.getElementById("menu-p"), mn = document.getElementById("menu");
+mp.addEventListener("click", function () {
+  var o = mn.classList.toggle("otwarte");
+  mp.setAttribute("aria-expanded", o);
+  mp.textContent = o ? "Zamknij" : "Menu";
+});
+</script>
+</body>
+</html>

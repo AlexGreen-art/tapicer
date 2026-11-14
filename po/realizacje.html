@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Realizacje — Sprężyna, zakład tapicerski</title>
+<meta name="description" content="Zdjęcia mebli przed i po renowacji w zakładzie tapicerskim Sprężyna.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styl.css?v=2">
+</head>
+<body>
+
+<header class="gora">
+  <a class="znak" href="index.html">Sprężyna<span>.</span></a>
+  <button id="menu-p" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  <nav id="menu">
+      <a href="index.html">Strona główna</a>
+      <a href="oferta.html">Oferta</a>
+      <a href="realizacje.html" class="tu" aria-current="page">Realizacje</a>
+      <a href="cennik.html">Cennik</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="tel" href="tel:+48425550123">42 555 01 23</a>
+      <span class="pokaz">
+        <a href="../przed/">Stara wersja strony</a>
+        <a href="https://alexgreen-art.github.io/portfolio/">← Portfolio</a>
+      </span>
+  </nav>
+</header>
+
+<main>
+<section class="tytul">
+  <div class="wew">
+    <p class="nadtytul">Realizacje</p>
+    <h1>Przed i po</h1>
+    <p>Te same meble, to samo ujęcie. Po lewej tak, jak do nas przyjechały, po prawej tak, jak wróciły do domu.</p>
+  </div>
+</section>
+<section class="tresc">
+  <div class="wew">
+    <div class="pary">
+      <div class="para">
+        <figure><img src="foto/fotel-przed.jpg" alt="Zniszczony fotel uszak przed renowacją"><span>Przed</span></figure>
+        <figure class="po"><img src="foto/fotel-po.jpg" alt="Ten sam fotel po renowacji"><span>Po</span></figure>
+        <p class="podpis"><b>Fotel uszak.</b> Nowe pasy i sprężyny, gąbka, welur butelkowy.</p>
+      </div>
+      <div class="para">
+        <figure><img src="foto/krzeslo-przed.jpg" alt="Zniszczone krzesło przed renowacją"><span>Przed</span></figure>
+        <figure class="po"><img src="foto/krzeslo-po.jpg" alt="To samo krzesło po renowacji"><span>Po</span></figure>
+        <p class="podpis"><b>Krzesło z kompletu do jadalni.</b> Nowe siedzisko, welur butelkowy, odświeżone drewno.</p>
+      </div>
+    </div>
+    <div class="w-trakcie">
+      <img src="foto/stary.jpg" alt="Szezlong w połowie renowacji" loading="lazy">
+      <div>
+        <p class="nadtytul">W pracowni</p>
+        <h2>Szezlong w połowie drogi</h2>
+        <p>Z lewej już obity, z prawej widać to, czego zwykle nie widać: sprężyny wiązane sznurkiem i pasy jutowe. Tak wygląda mebel w środku, zanim dostanie nową tkaninę.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="stopka">
+  <div class="wew">
+    <b style="color:#fff">Sprężyna</b>
+    <span>ul. Tkacka 14, Aleksandrów Łódzki</span>
+    <a href="tel:+48425550123">42 555 01 23</a>
+    <a href="mailto:pracownia@sprezyna.example?subject=Zapytanie%20o%20wycen%C4%99%20%E2%80%94%20tapicerka">pracownia@sprezyna.example</a>
+    <span>pon.–pt. 8–16, sob. 9–13</span>
+    <p class="demo">Strona demonstracyjna, miejsce, ceny i osoby są zmyślone. To część pokazu „Modernizacja: przed i po”. <a href="../przed/">Zobacz, jak ta sama strona wyglądała przed zmianą.</a></p>
+  </div>
+</footer>
+
+<script>
+var mp = document.getElementById("menu-p"), mn = document.getElementById("menu");
+mp.addEventListener("click", function () {
+  var o = mn.classList.toggle("otwarte");
+  mp.setAttribute("aria-expanded", o);
+  mp.textContent = o ? "Zamknij" : "Menu";
+});
+</script>
+</body>
+</html>
