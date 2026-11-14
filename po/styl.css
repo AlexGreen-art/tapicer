@@ -48,14 +48,14 @@ img{display:block;max-width:100%}
 .start h1{font-size:clamp(3.4rem,13vw,8.5rem);margin-bottom:.18em}
 .start p{font-size:clamp(1.1rem,2.3vw,1.45rem);max-width:30em;color:#e3ede7}
 
-.termin-pas{background:var(--zielen);color:#fff;padding:clamp(40px,7vw,90px) clamp(20px,6vw,90px)}
+.termin-pas{background:var(--zielen);color:#fff;padding:clamp(28px,4vw,52px) clamp(20px,6vw,90px)}
 .termin-pas .wew{display:grid;grid-template-columns:1fr auto;gap:24px 60px;align-items:center}
 .termin-pas .kiedy{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:clamp(2.6rem,7vw,5rem);line-height:1;color:var(--miedz);margin:.1em 0 .2em}
 .termin-pas p{color:#d5e3db;max-width:34em}
 .termin-pas .stan{font-size:.9rem;color:#8fa89c;margin-top:.6rem}
 .termin-pas .przyciski{margin-top:0;flex-direction:column}
 
-.drogi{padding:clamp(48px,7vw,96px) clamp(20px,6vw,90px)}
+.drogi{padding-top:clamp(32px,4.5vw,56px);padding-bottom:clamp(32px,4.5vw,56px)}
 .drogi h2{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:.6em}
 .karty{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .karta{display:flex;flex-direction:column;background:#fff;border-radius:18px;overflow:hidden;text-decoration:none;box-shadow:0 1px 0 rgba(15,61,46,.08),0 14px 34px -22px rgba(15,61,46,.5);transition:transform .18s}
@@ -66,16 +66,21 @@ img{display:block;max-width:100%}
 .karta p{color:var(--szary);font-size:1rem}
 .karta .dalej{display:block;margin-top:.8rem;font-weight:600;color:var(--miedz-ciemna)}
 
+/* ---------- ekrany: każdy zajmuje cały ekran pod belką, następny nie wjeżdża od dołu ---------- */
+.ekran{min-height:calc(100vh - var(--naglowek));min-height:calc(100svh - var(--naglowek));display:flex;flex-direction:column}
+.ekran>.blok{flex:1}
+.blok{padding:clamp(32px,4.5vw,60px) clamp(20px,6vw,90px);display:flex;flex-direction:column;justify-content:center}
+.blok-biale{background:#fff}
+
 /* ---------- podstrony ---------- */
-.tytul{background:var(--zielen-ciemna);color:#fff;padding:clamp(40px,6vw,80px) clamp(20px,6vw,90px) clamp(32px,5vw,64px)}
-.tytul h1{font-size:clamp(2.6rem,8vw,5rem);margin-bottom:.25em}
-.tytul p{color:#d5e3db;max-width:36em;font-size:clamp(1.05rem,2vw,1.25rem)}
-.tresc{padding:clamp(40px,6vw,80px) clamp(20px,6vw,90px);min-height:50vh}
+.tytul{background:var(--zielen-ciemna);color:#fff;padding:clamp(24px,3.4vw,44px) clamp(20px,6vw,90px)}
+.tytul h1{font-size:clamp(2.1rem,5vw,3.4rem);margin-bottom:.2em}
+.tytul p{color:#d5e3db;max-width:44em;font-size:clamp(1rem,1.6vw,1.15rem)}
+.tytul .nadtytul{margin-bottom:.5rem}
 
 /* oferta */
-.usluga{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center;margin-bottom:clamp(48px,7vw,90px)}
-.usluga:last-child{margin-bottom:0}
-.usluga:nth-child(even) img{order:2}
+.usluga{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center}
+.blok-biale .usluga img{order:2}
 .usluga img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:18px}
 .usluga h2{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--zielen);margin-bottom:.4em}
 .usluga ul{list-style:none;margin:1rem 0 0}
@@ -92,7 +97,7 @@ img{display:block;max-width:100%}
 .para figure.po span{background:var(--miedz)}
 .podpis{grid-column:1/-1;padding:14px 18px;font-size:.98rem;color:#d5e3db}
 .podpis b{color:#fff;font-weight:600}
-.w-trakcie{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(24px,4vw,48px);align-items:center;margin-top:clamp(40px,6vw,72px);background:#fff;border-radius:18px;overflow:hidden}
+.w-trakcie{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(24px,4vw,48px);align-items:center;background:var(--jasne);border-radius:18px;overflow:hidden}
 .w-trakcie img{width:100%;height:100%;aspect-ratio:3/2;object-fit:cover}
 .w-trakcie div{padding:24px clamp(20px,3vw,36px) 28px 0}
 .w-trakcie h2{font-size:clamp(1.6rem,3.4vw,2.2rem);color:var(--zielen);margin-bottom:.4em}
@@ -116,8 +121,8 @@ img{display:block;max-width:100%}
 .kontakt p{margin-bottom:1rem}
 .sasiad{color:var(--szary);font-size:1rem}
 .dane{background:#fff;border-radius:18px;overflow:hidden}
-.dane img{width:100%;aspect-ratio:3/2;object-fit:cover}
-.dane div{padding:24px 28px}
+.dane img{width:100%;aspect-ratio:21/9;object-fit:cover}
+.dane div{padding:20px 26px}
 .dane h3{font-size:1.15rem;color:var(--zielen);margin:1.1em 0 .3em}
 .dane h3:first-child{margin-top:0}
 .dane table{border-collapse:collapse;width:100%}
@@ -155,7 +160,7 @@ img{display:block;max-width:100%}
   .termin-pas .wew{grid-template-columns:1fr}
   .termin-pas .przyciski{flex-direction:row}
   .usluga,.cennik-uklad,.kontakt,.w-trakcie{grid-template-columns:1fr}
-  .usluga:nth-child(even) img{order:0}
+  .blok-biale .usluga img{order:0}
   .w-trakcie div{padding:0 20px 24px}
   .pary{grid-template-columns:1fr;gap:16px}
   .para img{aspect-ratio:1/1}
