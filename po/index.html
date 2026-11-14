@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sprężyna — zakład tapicerski, Aleksandrów Łódzki</title>
+<meta name="description" content="Zakład tapicerski Sprężyna w Aleksandrowie Łódzkim. Obijamy fotele, kanapy i krzesła, naprawiamy sprężyny i pasy, odnawiamy stare meble.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --zielen:#0f3d2e;
+  --zielen-ciemna:#092a1f;
+  --zielen-jasna:#1d5a45;
+  --miedz:#d07a3e;
+  --miedz-ciemna:#b3622b;
+  --jasne:#eef4f0;
+  --tekst:#10241c;
+  --szary:#51655c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Figtree,system-ui,sans-serif;font-size:18px;line-height:1.55;color:var(--tekst);background:var(--jasne)}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,sans-serif;line-height:1.08;letter-spacing:-.01em}
+a{color:inherit}
+img{display:block;max-width:100%}
+
+/* każda sekcja zajmuje cały ekran */
+section{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,6vw,80px) clamp(20px,6vw,90px)}
+.wew{width:100%;max-width:1180px;margin:0 auto}
+.nadtytul{font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--miedz);margin-bottom:.9rem}
+h2{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:.5em}
+
+/* przyciski */
+.przycisk{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:56px;padding:0 1.6em;border-radius:999px;font-weight:600;font-size:1.05rem;text-decoration:none;transition:transform .15s,background .15s}
+.przycisk:hover{transform:translateY(-2px)}
+.glowny{background:var(--miedz);color:#fff}
+.glowny:hover{background:var(--miedz-ciemna)}
+.obrys{border:2px solid currentColor}
+.przyciski{display:flex;flex-wrap:wrap;gap:14px;margin-top:2rem}
+
+/* zaślepki zdjęć: znikną po wstawieniu prawdziwych plików */
+.foto{position:relative;background:linear-gradient(135deg,#1d5a45,#0c3326 60%,#061d15);overflow:hidden}
+.foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.foto::after{content:attr(data-opis);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;font-size:.78rem;letter-spacing:.06em;color:rgba(255,255,255,.55)}
+.foto.jest::after{content:none}
+
+/* 1. start */
+#start{position:relative;color:#fff;background:var(--zielen-ciemna);padding-top:0;padding-bottom:clamp(36px,7vw,90px);justify-content:flex-end}
+#start .foto{position:absolute;inset:0}
+#start .foto::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,29,21,.25) 0%,rgba(6,29,21,.55) 45%,rgba(6,29,21,.94) 100%)}
+#start .foto img{object-position:60% center}
+#start .wew{position:relative;z-index:2}
+.gora{position:absolute;z-index:3;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:22px clamp(20px,6vw,90px);font-weight:600}
+.gora a{text-decoration:none}
+.znak{font-family:"Bricolage Grotesque",sans-serif;font-size:1.25rem;letter-spacing:-.01em}
+.znak span{color:var(--miedz)}
+h1{font-size:clamp(3.4rem,13vw,8.5rem);margin-bottom:.18em}
+#start p{font-size:clamp(1.1rem,2.3vw,1.45rem);max-width:30em;color:#e3ede7}
+
+/* 2. co robimy */
+#uslugi{background:var(--jasne)}
+.kafle{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:1.4rem}
+.kafel{display:flex;flex-direction:column;background:#fff;border-radius:18px;overflow:hidden;text-decoration:none;box-shadow:0 1px 0 rgba(15,61,46,.08),0 14px 34px -22px rgba(15,61,46,.5);transition:transform .18s,box-shadow .18s}
+.kafel:hover{transform:translateY(-5px);box-shadow:0 1px 0 rgba(15,61,46,.08),0 22px 40px -20px rgba(15,61,46,.6)}
+.kafel .foto{aspect-ratio:4/3}
+.kafel div.opis{padding:20px 22px 24px;display:flex;flex-direction:column;flex:1}
+.kafel h3{font-size:1.45rem;margin-bottom:.35em;color:var(--zielen)}
+.kafel p{color:var(--szary);font-size:1rem;flex:1}
+.kafel .dalej{margin-top:1rem;font-weight:600;color:var(--miedz-ciemna)}
+
+/* 3. przed i po */
+#realizacje{background:var(--zielen);color:#fff}
+#realizacje h2{color:#fff}
+.pary{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:1.2rem}
+.para{display:grid;grid-template-columns:1fr 1fr;gap:6px;border-radius:18px;overflow:hidden}
+.para .foto{aspect-ratio:4/5}
+.para .foto span{position:absolute;z-index:2;left:12px;top:12px;background:rgba(6,29,21,.8);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:999px}
+.para .foto.po span{background:var(--miedz)}
+.podpis{grid-column:1/-1;background:var(--zielen-ciemna);padding:14px 18px;font-size:.98rem;color:#d5e3db}
+.podpis b{color:#fff;font-weight:600}
+
+/* 4. termin */
+#termin{background:var(--zielen-ciemna);color:#fff;text-align:center;align-items:center}
+#termin .wielkie{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:clamp(3rem,11vw,7.5rem);line-height:1;color:var(--miedz);margin:.15em 0 .25em}
+#termin p{max-width:32em;margin:0 auto;color:#d5e3db}
+#termin .stan{font-size:.9rem;color:#8fa89c;margin-top:1.2rem}
+#termin .przyciski{justify-content:center}
+
+/* 5. kontakt */
+#kontakt{background:var(--jasne)}
+.kontakt{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,70px);align-items:start}
+.duzy{display:block;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:clamp(2rem,6vw,3.6rem);line-height:1.1;color:var(--zielen);text-decoration:none;margin-bottom:.15em}
+.duzy:hover{color:var(--miedz-ciemna)}
+.mail{display:inline-block;font-size:clamp(1.05rem,2.6vw,1.4rem);font-weight:600;color:var(--zielen-jasna);margin-bottom:1.6rem;word-break:break-word}
+.dane{background:#fff;border-radius:18px;padding:26px 28px}
+.dane h3{font-size:1.15rem;color:var(--zielen);margin:1.1em 0 .3em}
+.dane h3:first-child{margin-top:0}
+.dane table{border-collapse:collapse;width:100%}
+.dane td{padding:3px 0}
+.dane td:last-child{text-align:right;font-weight:500}
+.sasiad{margin-top:1.4rem;color:var(--szary);font-size:1rem;max-width:34em}
+.demo{margin-top:clamp(28px,5vw,56px);padding-top:18px;border-top:1px solid rgba(15,61,46,.18);font-size:.9rem;color:var(--szary)}
+
+@media (max-width:860px){
+  body{font-size:17px}
+  .kafle{grid-template-columns:1fr;gap:12px}
+  .kafel{flex-direction:row;align-items:stretch}
+  .kafel .foto{flex:0 0 34%;aspect-ratio:auto;min-height:118px}
+  .kafel div.opis{padding:14px 16px}
+  .kafel h3{font-size:1.2rem}
+  .kafel p{font-size:.93rem}
+  .kafel .dalej{margin-top:.5rem;font-size:.93rem}
+  .pary{grid-template-columns:1fr;gap:16px}
+  .para .foto{aspect-ratio:1/1}
+  .podpis{font-size:.9rem;padding:11px 14px}
+  .kontakt{grid-template-columns:1fr}
+  .przyciski .przycisk{flex:1 1 100%}
+}
+</style>
+</head>
+<body>
+
+<!-- 1. START -->
+<section id="start">
+  <div class="gora">
+    <a class="znak" href="#start">Sprężyna<span>.</span></a>
+    <a href="tel:+48425550123">42 555 01 23</a>
+  </div>
+  <div class="foto jest">
+    <img src="foto/start.jpg" alt="Odnowiony fotel uszak w pracowni tapicerskiej">
+  </div>
+  <div class="wew">
+    <p class="nadtytul">Zakład tapicerski · Aleksandrów Łódzki</p>
+    <h1>Sprężyna</h1>
+    <p>Obijamy fotele, kanapy i krzesła. Wymieniamy sprężyny, pasy i gąbkę. Stary mebel wraca do domu wygodny i w nowej tkaninie.</p>
+    <div class="przyciski">
+      <a class="przycisk glowny" href="tel:+48425550123">Zadzwoń: 42 555 01 23</a>
+      <a class="przycisk obrys" href="mailto:pracownia@sprezyna.example?subject=Zapytanie%20o%20wycen%C4%99%20%E2%80%94%20zdj%C4%99cie%20mebla&body=Dzie%C5%84%20dobry%2C%0A%0Aw%20za%C5%82%C4%85czniku%20wysy%C5%82am%20zdj%C4%99cie%20mebla.%0AWymiary%20(mniej%20wi%C4%99cej)%3A%20%0ACo%20jest%20do%20zrobienia%3A%20%0A">Wyślij zdjęcie mebla</a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. CO ROBIMY -->
+<section id="uslugi">
+  <div class="wew">
+    <p class="nadtytul">Co robimy</p>
+    <h2>Wybierz mebel i napisz, co mu dolega</h2>
+    <div class="kafle">
+      <a class="kafel" href="mailto:pracownia@sprezyna.example?subject=Zapytanie%20o%20wycen%C4%99%20%E2%80%94%20fotel%20lub%20kanapa">
+        <div class="foto jest"><img src="foto/fotel.jpg" alt="Kanapa po renowacji" loading="lazy"></div>
+        <div class="opis">
+          <h3>Fotele i kanapy</h3>
+          <p>Nowa tkanina, nowa gąbka, naprawa siedziska, które się zapada.</p>
+          <span class="dalej">Zapytaj o wycenę →</span>
+        </div>
+      </a>
+      <a class="kafel" href="mailto:pracownia@sprezyna.example?subject=Zapytanie%20o%20wycen%C4%99%20%E2%80%94%20obicie%20krzese%C5%82">
+        <div class="foto jest"><img src="foto/krzesla.jpg" alt="Krzesła z nowymi siedziskami" loading="lazy"></div>
+        <div class="opis">
+          <h3>Krzesła</h3>
+          <p>Jedno krzesło albo cały komplet do stołu. Także siedziska ławek i taboretów.</p>
+          <span class="dalej">Zapytaj o wycenę →</span>
+        </div>
+      </a>
+      <a class="kafel" href="mailto:pracownia@sprezyna.example?subject=Zapytanie%20o%20wycen%C4%99%20%E2%80%94%20stary%20mebel%20do%20odnowienia">
+        <div class="foto jest"><img src="foto/stary.jpg" alt="Szezlong w trakcie renowacji" loading="lazy"></div>
+        <div class="opis">
+          <h3>Stare meble</h3>
+          <p>Fotel po babci, szezlong, uszak. Zostawiamy charakter, wymieniamy to, co zużyte.</p>
+          <span class="dalej">Zapytaj o wycenę →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PRZED I PO -->
+<section id="realizacje">
+  <div class="wew">
+    <p class="nadtytul">Przed i po</p>
+    <h2>Te same meble, kilka tygodni później</h2>
+    <div class="pary">
+      <div class="para">
+        <div class="foto jest"><span>Przed</span><img src="foto/fotel-przed.jpg" alt="Zniszczony fotel uszak przed renowacją" loading="lazy"></div>
+        <div class="foto po jest"><span>Po</span><img src="foto/fotel-po.jpg" alt="Ten sam fotel po renowacji" loading="lazy"></div>
+        <p class="podpis"><b>Fotel uszak.</b> Nowe pasy i sprężyny, gąbka, welur butelkowy.</p>
+      </div>
+      <div class="para">
+        <div class="foto jest"><span>Przed</span><img src="foto/krzeslo-przed.jpg" alt="Zniszczone krzesło przed renowacją" loading="lazy"></div>
+        <div class="foto po jest"><span>Po</span><img src="foto/krzeslo-po.jpg" alt="To samo krzesło po renowacji" loading="lazy"></div>
+        <p class="podpis"><b>Krzesło z kompletu do jadalni.</b> Nowe siedzisko, welur butelkowy, odświeżone drewno.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. TERMIN -->
+<section id="termin">
+  <div class="wew">
+    <p class="nadtytul">Najbliższy wolny termin</p>
+    <p class="wielkie" id="kiedy">zadzwoń</p>
+    <p>Wtedy możemy przyjąć kolejny mebel. Krzesło zajmuje nam zwykle kilka dni, fotel około dwóch tygodni.</p>
+    <p class="stan" id="stan"></p>
+    <div class="przyciski">
+      <a class="przycisk glowny" href="tel:+48425550123">Zadzwoń i zarezerwuj</a>
+      <a class="przycisk obrys" href="mailto:pracownia@sprezyna.example?subject=Zapytanie%20o%20wycen%C4%99%20%E2%80%94%20rezerwacja%20terminu">Napisz w sprawie terminu</a>
+    </div>
+  </div>
+</section>
+
+<!-- 5. KONTAKT -->
+<section id="kontakt">
+  <div class="wew">
+    <p class="nadtytul">Kontakt</p>
+    <div class="kontakt">
+      <div>
+        <a class="duzy" href="tel:+48425550123">42 555 01 23</a>
+        <a class="mail" href="mailto:pracownia@sprezyna.example?subject=Zapytanie%20o%20wycen%C4%99%20%E2%80%94%20tapicerka">pracownia@sprezyna.example</a>
+        <p>Najszybciej wyceniamy ze zdjęcia. Wystarczy jedno z przodu i jedno z boku oraz przybliżone wymiary.</p>
+        <p class="sasiad">Drewniana rama też wymaga naprawy? Współpracujemy ze stolarnią <a href="https://alexgreen-art.github.io/stolarnia/">Drugie Życie ze Zgierza</a>, mebel jedzie tam i wraca do nas bez Twojego udziału.</p>
+      </div>
+      <div class="dane">
+        <h3>Adres</h3>
+        <p>ul. Tkacka 14<br>95-070 Aleksandrów Łódzki</p>
+        <h3>Godziny</h3>
+        <table>
+          <tr><td>poniedziałek – piątek</td><td>8:00 – 16:00</td></tr>
+          <tr><td>sobota</td><td>9:00 – 13:00</td></tr>
+          <tr><td>niedziela</td><td>nieczynne</td></tr>
+        </table>
+      </div>
+    </div>
+    <p class="demo">Strona demonstracyjna, miejsce, ceny i osoby są zmyślone. To część pokazu „Modernizacja: przed i po". <a href="../przed/">Zobacz, jak ta sama strona wyglądała przed zmianą.</a></p>
+  </div>
+</section>
+
+<script src="../termin.js?v=1"></script>
+<script>
+if (typeof NAJBLIZSZY_TERMIN === "string" && NAJBLIZSZY_TERMIN) {
+  document.getElementById("kiedy").textContent = NAJBLIZSZY_TERMIN;
+}
+if (typeof STAN_NA_DZIEN === "string" && STAN_NA_DZIEN) {
+  document.getElementById("stan").textContent = "Stan na " + STAN_NA_DZIEN + ".";
+}
+</script>
+</body>
+</html>
