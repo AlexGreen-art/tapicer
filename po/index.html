@@ -19,24 +19,18 @@
   --jasne:#eef4f0;
   --tekst:#10241c;
   --szary:#51655c;
-  --pasek:40px;
-  --naglowek:64px;
+  --naglowek:68px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-#pokaz{position:sticky;top:0;z-index:50;height:var(--pasek);display:flex;align-items:center;justify-content:center;gap:4px;background:#111;color:#fff;font-size:13px;white-space:nowrap;padding:0 10px}
-#pokaz a{color:#fff;text-decoration:none;padding:5px 12px;border-radius:999px}
-#pokaz a.tu{background:#fff;color:#111;font-weight:600}
-#pokaz a.port{margin-right:auto}
-#pokaz span{opacity:.7;margin-right:4px}
-#pokaz i{flex:1}
+body{padding-top:var(--naglowek)}
 body{font-family:Figtree,system-ui,sans-serif;font-size:18px;line-height:1.55;color:var(--tekst);background:var(--jasne)}
 h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,sans-serif;line-height:1.08;letter-spacing:-.01em}
 a{color:inherit}
 img{display:block;max-width:100%}
 
 /* każda sekcja zajmuje cały ekran */
-section{scroll-margin-top:calc(var(--pasek) + var(--naglowek));min-height:calc(100vh - var(--pasek) - var(--naglowek));min-height:calc(100svh - var(--pasek) - var(--naglowek));display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,6vw,80px) clamp(20px,6vw,90px)}
+section{scroll-margin-top:var(--naglowek);min-height:calc(100vh - var(--naglowek));min-height:calc(100svh - var(--naglowek));display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,6vw,80px) clamp(20px,6vw,90px)}
 .wew{width:100%;max-width:1180px;margin:0 auto}
 .nadtytul{font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--miedz);margin-bottom:.9rem}
 h2{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:.5em}
@@ -56,18 +50,20 @@ h2{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:.5em}
 .foto.jest::after{content:none}
 
 /* 1. start */
-#start{min-height:calc(100vh - var(--pasek));min-height:calc(100svh - var(--pasek));position:relative;color:#fff;background:var(--zielen-ciemna);padding-top:0;padding-bottom:clamp(36px,7vw,90px);justify-content:flex-end}
+#start{position:relative;color:#fff;background:var(--zielen-ciemna);padding-top:0;padding-bottom:clamp(36px,7vw,90px);justify-content:flex-end}
 #start .foto{position:absolute;inset:0}
 #start .foto::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,29,21,.25) 0%,rgba(6,29,21,.55) 45%,rgba(6,29,21,.94) 100%)}
 #start .foto img{object-position:60% center}
 #start .wew{position:relative;z-index:2}
-.gora{position:sticky;top:var(--pasek);z-index:40;height:var(--naglowek);margin-bottom:calc(-1 * var(--naglowek));display:flex;justify-content:space-between;align-items:center;padding:0 clamp(20px,6vw,90px);font-weight:600;color:#fff;transition:background .25s,box-shadow .25s}
-.gora.pelny{background:var(--zielen-ciemna);box-shadow:0 8px 24px -12px rgba(0,0,0,.6)}
+.gora{position:fixed;top:0;left:0;right:0;z-index:50;height:var(--naglowek);display:flex;align-items:center;gap:clamp(14px,2vw,28px);padding:0 clamp(16px,4vw,56px);font-weight:600;color:#fff;background:var(--zielen-ciemna);box-shadow:0 6px 20px -10px rgba(0,0,0,.55)}
+.gora .znak{margin-right:auto}
 .gora nav a.aktywny{color:var(--miedz)}
 .gora a{text-decoration:none}
-.gora nav{display:flex;align-items:center;gap:clamp(14px,2.4vw,34px);font-size:1rem}
+.gora nav{display:flex;align-items:center;gap:clamp(12px,1.8vw,28px);font-size:.98rem}
+.gora nav .pokaz{display:flex;align-items:center;gap:clamp(12px,1.6vw,22px);padding-left:clamp(12px,1.6vw,22px);border-left:1px solid rgba(255,255,255,.25);font-weight:500;font-size:.9rem;color:#b9cdc3}
+.gora nav .pokaz a:hover{color:#fff}
 .gora nav a:hover{color:var(--miedz)}
-.gora .tel{border:2px solid rgba(255,255,255,.7);border-radius:999px;padding:6px 16px}
+.gora .tel{border:2px solid rgba(255,255,255,.7);border-radius:999px;padding:6px 16px;white-space:nowrap}
 #menu-p{display:none;font:inherit;font-weight:600;color:#fff;background:none;border:2px solid rgba(255,255,255,.7);border-radius:999px;padding:6px 18px;cursor:pointer}
 .znak{font-family:"Bricolage Grotesque",sans-serif;font-size:1.25rem;letter-spacing:-.01em}
 .znak span{color:var(--miedz)}
@@ -118,13 +114,17 @@ h1{font-size:clamp(3.4rem,13vw,8.5rem);margin-bottom:.18em}
 .sasiad{margin-top:1.4rem;color:var(--szary);font-size:1rem;max-width:34em}
 .demo{margin-top:clamp(28px,5vw,56px);padding-top:18px;border-top:1px solid rgba(15,61,46,.18);font-size:.9rem;color:var(--szary)}
 
-@media (max-width:860px){
-  #pokaz span{display:none}
+@media (max-width:1100px){
   #menu-p{display:block}
-  .gora nav{display:none;position:absolute;top:100%;left:12px;right:12px;flex-direction:column;align-items:stretch;gap:0;background:var(--zielen-ciemna);border-radius:16px;padding:8px;box-shadow:0 20px 40px -10px rgba(0,0,0,.6)}
+  .gora nav{display:none;position:absolute;top:calc(100% + 6px);left:12px;right:12px;max-width:420px;margin-left:auto;flex-direction:column;align-items:stretch;gap:0;background:var(--zielen-ciemna);border-radius:16px;padding:8px;box-shadow:0 20px 40px -10px rgba(0,0,0,.6)}
   .gora nav.otwarte{display:flex}
   .gora nav a{padding:14px 16px;font-size:1.1rem;border-radius:10px}
+  .gora nav a:hover{background:rgba(255,255,255,.06)}
   .gora .tel{border:0;background:var(--miedz);text-align:center;margin-top:6px}
+  .gora nav .pokaz{flex-direction:column;align-items:stretch;gap:0;border-left:0;padding:8px 0 0;margin-top:10px;border-top:1px solid rgba(255,255,255,.18)}
+  .gora nav .pokaz a{font-size:1rem}
+}
+@media (max-width:860px){
   body{font-size:17px}
   .kafle{grid-template-columns:1fr;gap:12px}
   .kafel{flex-direction:row;align-items:stretch}
@@ -142,7 +142,6 @@ h1{font-size:clamp(3.4rem,13vw,8.5rem);margin-bottom:.18em}
 </style>
 </head>
 <body>
-<div id="pokaz"><a class="port" href="https://alexgreen-art.github.io/portfolio/">← Portfolio</a><span>Pokaz modernizacji:</span><a href="../przed/">Przed</a><a class="tu" href="./">Po</a><i></i></div>
 
 <!-- NAGŁÓWEK: przypięty, widoczny w każdej sekcji -->
 <header class="gora" id="naglowek">
@@ -154,6 +153,10 @@ h1{font-size:clamp(3.4rem,13vw,8.5rem);margin-bottom:.18em}
       <a href="#termin">Termin</a>
       <a href="#kontakt">Kontakt</a>
       <a class="tel" href="tel:+48425550123">42 555 01 23</a>
+      <span class="pokaz">
+        <a href="../przed/">Stara wersja strony</a>
+        <a href="https://alexgreen-art.github.io/portfolio/">← Portfolio</a>
+      </span>
     </nav>
 </header>
 
@@ -288,7 +291,6 @@ var ng = document.getElementById("naglowek");
 var start = document.getElementById("start");
 var linkiMenu = mn.querySelectorAll("a[href^='#']");
 function stan() {
-  ng.classList.toggle("pelny", start.getBoundingClientRect().bottom < 140 || mn.classList.contains("otwarte"));
   var biezaca = "";
   document.querySelectorAll("section").forEach(function (s) {
     if (s.getBoundingClientRect().top < window.innerHeight * 0.4) biezaca = s.id;
