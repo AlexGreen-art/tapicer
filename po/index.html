@@ -20,6 +20,7 @@
   --tekst:#10241c;
   --szary:#51655c;
   --pasek:40px;
+  --naglowek:64px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -35,7 +36,7 @@ a{color:inherit}
 img{display:block;max-width:100%}
 
 /* każda sekcja zajmuje cały ekran */
-section{scroll-margin-top:var(--pasek);min-height:calc(100vh - var(--pasek));min-height:calc(100svh - var(--pasek));display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,6vw,80px) clamp(20px,6vw,90px)}
+section{scroll-margin-top:calc(var(--pasek) + var(--naglowek));min-height:calc(100vh - var(--pasek) - var(--naglowek));min-height:calc(100svh - var(--pasek) - var(--naglowek));display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,6vw,80px) clamp(20px,6vw,90px)}
 .wew{width:100%;max-width:1180px;margin:0 auto}
 .nadtytul{font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--miedz);margin-bottom:.9rem}
 h2{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:.5em}
@@ -55,12 +56,14 @@ h2{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:.5em}
 .foto.jest::after{content:none}
 
 /* 1. start */
-#start{position:relative;color:#fff;background:var(--zielen-ciemna);padding-top:0;padding-bottom:clamp(36px,7vw,90px);justify-content:flex-end}
+#start{min-height:calc(100vh - var(--pasek));min-height:calc(100svh - var(--pasek));position:relative;color:#fff;background:var(--zielen-ciemna);padding-top:0;padding-bottom:clamp(36px,7vw,90px);justify-content:flex-end}
 #start .foto{position:absolute;inset:0}
 #start .foto::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,29,21,.25) 0%,rgba(6,29,21,.55) 45%,rgba(6,29,21,.94) 100%)}
 #start .foto img{object-position:60% center}
 #start .wew{position:relative;z-index:2}
-.gora{position:absolute;z-index:3;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:22px clamp(20px,6vw,90px);font-weight:600}
+.gora{position:sticky;top:var(--pasek);z-index:40;height:var(--naglowek);margin-bottom:calc(-1 * var(--naglowek));display:flex;justify-content:space-between;align-items:center;padding:0 clamp(20px,6vw,90px);font-weight:600;color:#fff;transition:background .25s,box-shadow .25s}
+.gora.pelny{background:var(--zielen-ciemna);box-shadow:0 8px 24px -12px rgba(0,0,0,.6)}
+.gora nav a.aktywny{color:var(--miedz)}
 .gora a{text-decoration:none}
 .gora nav{display:flex;align-items:center;gap:clamp(14px,2.4vw,34px);font-size:1rem}
 .gora nav a:hover{color:var(--miedz)}
@@ -141,9 +144,8 @@ h1{font-size:clamp(3.4rem,13vw,8.5rem);margin-bottom:.18em}
 <body>
 <div id="pokaz"><a class="port" href="https://alexgreen-art.github.io/portfolio/">← Portfolio</a><span>Pokaz modernizacji:</span><a href="../przed/">Przed</a><a class="tu" href="./">Po</a><i></i></div>
 
-<!-- 1. START -->
-<section id="start">
-  <div class="gora">
+<!-- NAGŁÓWEK: przypięty, widoczny w każdej sekcji -->
+<header class="gora" id="naglowek">
     <a class="znak" href="#start">Sprężyna<span>.</span></a>
     <button id="menu-p" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
     <nav id="menu">
@@ -153,7 +155,10 @@ h1{font-size:clamp(3.4rem,13vw,8.5rem);margin-bottom:.18em}
       <a href="#kontakt">Kontakt</a>
       <a class="tel" href="tel:+48425550123">42 555 01 23</a>
     </nav>
-  </div>
+</header>
+
+<!-- 1. START -->
+<section id="start">
   <div class="foto jest">
     <img src="foto/start.jpg" alt="Odnowiony fotel uszak w pracowni tapicerskiej">
   </div>
@@ -279,6 +284,21 @@ mp.addEventListener("click", function () {
 mn.addEventListener("click", function () {
   mn.classList.remove("otwarte"); mp.setAttribute("aria-expanded", false); mp.textContent = "Menu";
 });
+var ng = document.getElementById("naglowek");
+var start = document.getElementById("start");
+var linkiMenu = mn.querySelectorAll("a[href^='#']");
+function stan() {
+  ng.classList.toggle("pelny", start.getBoundingClientRect().bottom < 140 || mn.classList.contains("otwarte"));
+  var biezaca = "";
+  document.querySelectorAll("section").forEach(function (s) {
+    if (s.getBoundingClientRect().top < window.innerHeight * 0.4) biezaca = s.id;
+  });
+  linkiMenu.forEach(function (a) { a.classList.toggle("aktywny", a.getAttribute("href") === "#" + biezaca); });
+}
+window.addEventListener("scroll", stan, { passive: true });
+window.addEventListener("resize", stan);
+mp.addEventListener("click", stan);
+stan();
 </script>
 </body>
 </html>
